@@ -1,0 +1,155 @@
+:root {
+    --cellSize: 20;
+    --cellRows: 25;
+    --cellCols: 20;
+    --titleRows: 4;
+    --informationRows: 2;
+    --footerRows: 4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.disappear {
+    display: none;
+}
+
+.appear {
+    display: block;
+}
+
+.appear-inline {
+    display: inline-block;
+}
+
+.main {
+    position: absolute;
+    width: calc(var(--cellSize) * var(--cellCols) * 1px);
+    height: calc(var(--cellSize) * (var(--cellRows) + var(--titleRows) + var(--informationRows) + var(--footerRows)) * 1px);
+    border: 5px solid grey;
+    background-color: black;
+    top: 50%;
+    left: 50%;
+    margin-left: calc(var(--cellSize) * var(--cellCols) * -0.5px - 5px);
+    margin-top: calc(var(--cellSize) * -17.5px - 5px);
+}
+
+.main .title {
+    width: calc(var(--cellSize) * calc(var(--cellCols)) * 1px);
+    height: calc(var(--cellSize) * calc(var(--titleRows)) * 1px);
+    font-size: calc(var(--cellSize) * calc((var(--titleRows) - 1))* 1px);
+    line-height: calc(var(--cellSize) * calc(var(--titleRows)) * 1px);
+    color: green;
+    text-align: center;
+}
+
+.information {
+    width: calc(var(--cellSize) * calc(var(--cellCols)) * 1px);
+    height: calc(var(--cellSize) * var(--informationRows) * 1px);
+    font-size: 0;
+    line-height: calc(var(--cellSize) * var(--informationRows) * 1px - 5px);
+    color: red;
+    border-bottom: 5px solid grey;
+}
+
+.level,
+.score {
+    display: inline-block;
+    height: calc(var(--cellSize) * var(--informationRows) * 1px - 5px);
+    /* font-size: calc(var(--cellSize) * var(--informationRows) * 1px - 9px); */
+    /* line-height: calc(var(--cellSize) * 1px - 5px); */
+    font-size: 18px;
+    vertical-align: bottom;
+}
+
+.score {
+    width: calc(var(--cellSize) * var(--cellCols) * 0.3px);
+    text-align: right;
+}
+
+.level {
+    width: calc(var(--cellSize) * var(--cellCols) * 0.7px);
+    text-align: left;
+}
+
+.scene {
+    width: calc(var(--cellSize) * var(--cellCols) * 1px);
+    height: calc(var(--cellSize) * var(--cellRows) * 1px);
+    font-size: 0;
+}
+
+.scene div {
+    display: inline-block;
+    width: calc(var(--cellSize)*1px);
+    height: calc(var(--cellSize)*1px);
+    font-size: calc(var(--cellSize)*1px - 2px);
+    line-height: calc(var(--cellSize)*1px);
+    text-align: center;
+}
+
+.scene div.snake-head {
+    /* width: 15px;
+    height: 15px; */
+    border-radius: calc(var(--cellSize)*0.5px);
+    background-color: red;
+}
+
+.scene div.snake-body {
+    width: calc(var(--cellSize)*1px - 2px);
+    height: calc(var(--cellSize)*1px - 2px);
+    margin: 1px;
+    border-radius: calc(var(--cellSize)*0.25px);
+    background-color: green;
+}
+
+.scene div.food {
+    font-size: calc(var(--cellSize) * 1px - 2px);
+    line-height: calc(var(--cellSize) * 1px);
+    background-color: transparent;
+}
+
+.footer {
+    width: calc(var(--cellSize) * var(--cellCols) * 1px);
+    height: calc(var(--cellSize) * var(--footerRows) * 1px - 10px);
+    border-top: 5px solid grey;
+}
+
+.footer .help {
+    height: calc(var(--cellSize) * 2.5px);
+    font-size: calc(var(--cellSize) * 1.5px);
+    line-height: calc(var(--cellSize) * 2.5px - 10px);
+    color: darkgreen;
+    text-align: center;
+}
+
+.footer .signature {
+    height: calc(var(--cellSize) * 1px);
+    font-size: 6px;
+    line-height: calc(var(--cellSize) * 1px);
+    color: rgb(58, 58, 58);
+    text-align: right;
+}
+
+.main .game-over,
+.main .pause {
+    width: calc(var(--cellSize) * var(--cellCols) * 1px);
+    height: calc(var(--cellSize) * (var(--cellRows) + var(--titleRows) + var(--informationRows) + var(--footerRows)) * 1px);
+    font-size: calc(var(--cellSize) * 3.2px);
+    line-height: calc(var(--cellSize) * var(--cellRows) * 1px);
+    text-align: center;
+    color: red;
+    background-color: rgb(158, 158, 158, 0.58);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.main .game-over .ok {
+    display: block;
+    font-size: calc(var(--cellSize) * 3px);
+    width: calc(var(--cellSize) * 10px);
+    margin: 0 auto;
+    border: 10px grey outset;
+}
